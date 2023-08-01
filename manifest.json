@@ -3,12 +3,7 @@
   "name": "Discord Redirect",
   "version": "1.0",
   "description": "Redirects Discord URLs",
-  "permissions": [
-    "tabs",
-    "scripting",
-    "storage",
-    "webRequest"
-  ],
+  "permissions": ["tabs", "scripting", "storage", "webRequest"],
   "host_permissions": [
     "*://discord.com/*",
     "*://canary.discord.com/*",
