@@ -1,0 +1,66 @@
+:root {
+  --bg-color: #2c2921;
+  --color: #eee;
+  --color-light: #fdfdfd;
+}
+
+body {
+  padding: 0 1rem 1rem 1rem;
+  min-width: 300px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: var(--color);
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+svg.logo {
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  fill: white;
+}
+
+.row {
+  margin: 1.4rem 0;
+}
+
+select, button {
+  border: none;
+  outline: none;
+}
+
+select {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  padding: 0;
+  height: 2rem;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 700;
+}
+
+.btn.primary {
+  background-color: #5865F2;
+  color: var(--color-light);
+  transition: background-color 0.2s;
+}
+
+.btn.primary:hover {
+  background-color: #6672f2;
+}
