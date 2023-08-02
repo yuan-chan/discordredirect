@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var redirectOption = document.getElementById("redirectOption");
 
   chrome.storage.local.get("redirectOption", function (data) {
-    redirectOption.value = data.redirectOption;
+    redirectOption.value = data.redirectOption || "stable";
   });
 
-  saveButton.addEventListener("click", function () {
+  saveButton.addEventListener("click", function (e) {
     chrome.storage.local.set(
       { redirectOption: redirectOption.value },
       function () {
@@ -20,5 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       chrome.storage.local.set({ redirectUrl: "https://discord.com/" });
     }
+
+    const { currentTarget } = e;
+    const originalText = currentTarget.textContent;
+    currentTarget.textContent = "Saved!";
+    setTimeout(function(){
+      currentTarget.textContent = originalText;
+    }, 3000);
   });
+});
+
+window.addEventListener("load", function(){
+  const buttons = window.document.querySelectorAll("button");
+  for(const button of buttons){
+    button.addEventListener("pointerdown", function(e){
+      window.ripplet(e, {
+        spreadingDuration: "0.2s"
+      });
+    });
+  }
 });
