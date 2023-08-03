@@ -64,3 +64,32 @@ button {
 .btn.primary:hover {
   background-color: #6672f2;
 }
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+table ul {
+  padding-left: 1rem;
+  margin: 0;
+}
+
+table ul li {
+  margin: 4px 0;
+}
+
+table ul li img {
+  border-radius: 50%;
+}
+
+table th, td {
+  border: 1px solid var(--color);
+  padding: 4px 8px;
+}
+
+table td img {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}

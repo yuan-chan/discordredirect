@@ -3,7 +3,14 @@
   "name": "Discord Redirect",
   "version": "1.0",
   "description": "Redirects Discord URLs",
-  "permissions": ["tabs", "scripting", "storage", "webRequest"],
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage",
+    "webRequest",
+    "offscreen",
+    "declarativeNetRequestWithHostAccess"
+  ],
   "host_permissions": [
     "*://discord.com/*",
     "*://canary.discord.com/*",
@@ -29,7 +36,9 @@
         "*://ptb.discord.com/*"
       ],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_start",
+      "all_frames": true,
+      "persist_across_sessions": false
     }
   ],
   "content_security_policy": {

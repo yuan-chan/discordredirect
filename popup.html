@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta name="charset" content="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="popup.js" rel="preload" as="script">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,33 @@
   </div>
   <div role="form">
     <div class="row">
+      <h2 style="text-align: center;">Current Login States</h2>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>Stable</th>
+              <td class="accounts-stable">
+                <span>Loading...</span>
+              </td>
+            </tr>
+            <tr>
+              <th>Canary</th>
+              <td class="accounts-canary">
+                <span>Loading...</span>
+              </td>
+            </tr>
+            <tr>
+              <th>PTB</th>
+              <td class="accounts-ptb">
+                <span>Loading...</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row" style="text-align: center;">
       <label for="redirectOption">
         <span>Redirect Option:</span>
         <select id="redirectOption">
