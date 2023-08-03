@@ -39,4 +39,59 @@ window.addEventListener("load", function(){
       });
     });
   }
+
+  chrome.runtime.sendMessage({
+    target: "background",
+    type: "UPDATE_START",
+    data: null,
+  });
+});
+
+const noop = function() {};
+
+function updateLoginStates(){
+  ["stable", "canary", "ptb"].forEach(function(edition){
+    chrome.storage.local.get(`${edition}-users`)
+      .then(function(users){
+        const editionUsers = users?.[`${edition}-users`];
+        const nodes = [];
+        if(Array.isArray(editionUsers)){
+          const ul = window.document.createElement("ul");
+          for(const user of editionUsers){
+            const li = window.document.createElement("li");
+            const img = window.document.createElement("img");
+            img.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.webp?size=32`;
+            const span = window.document.createElement("span");
+            span.textContent = `${user.username}${!user.discriminator || user.discriminator === "0" ? "" : `#${user.discriminator}`}`;
+            li.append(img, span);
+            ul.append(li);
+          }
+          nodes.push(ul);
+        }else{
+          const span = window.document.createElement("span");
+          span.textContent = "No Account detected.";
+          nodes.push(span);
+        }
+        const targetParent = window.document.getElementsByClassName(`accounts-${edition}`)[0];
+        for(const child of targetParent.children){
+          child.remove();
+        }
+        targetParent.append.apply(targetParent, nodes);
+      })
+      .catch(noop);
+  });
+}
+
+chrome.runtime.onMessage.addListener(function(message){
+  if(message.target !== "popup"){
+    return;
+  }
+
+  console.log("popup", message);
+
+  switch(message.type){
+    case "UPDATE_DONE":
+      updateLoginStates();
+      break;
+  }
 });
