@@ -1,4 +1,4 @@
-![dre](https://github.com/yuan-chan/discordredirect/assets/59510695/43a0d746-8080-4e61-b413-bd1f34d4aedb)
+![dre](https://github.com/yuan-chan/discordredirect/assets/59510695/ad77cbe8-5ca2-4aed-b0df-661a4c997331)
 # DiscordRedirect
 DiscordRedirect is an extension for those who wish to log in to multiple accounts in Chrome.
 It allows you to switch between a total of three accounts using Stable, Canary, and PTB without logging out.
